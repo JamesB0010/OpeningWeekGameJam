@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraRaycast : MonoBehaviour
 {
+    [SerializeField] private 
     void Start()
     {
         
@@ -17,7 +18,11 @@ public class CameraRaycast : MonoBehaviour
             Physics.Raycast(transform.position, transform.forward, out RaycastHit hit);
             if (hit.rigidbody)
             {
-                Debug.Log("12");
+                hit.rigidbody.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth);
+                if (enemyHealth != null)
+                {
+                    enemyHealth.DealDamage(20);
+                }
             }
         }
     }
