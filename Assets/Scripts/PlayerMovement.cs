@@ -43,15 +43,10 @@ public class PlayerMovement : MonoBehaviour
     {
         float yVelocity = this.rb.velocity.y;
 
-        Vector3 rigidBodyDirection = new Vector3(leftInput, yVelocity, forwardInput).normalized;
-
-        Vector3.Scale(rigidBodyDirection, this.camera.transform.forward);
-
         this.rb.velocity = new Vector3(leftInput * this.movementSpeed, yVelocity, forwardInput * this.movementSpeed);
 
+        this.rb.velocity.Scale(this.camera.transform.forward);
 
-
-
-        bool hi = true == true ? true : false;
+        this.rb.velocity.Scale(this.camera.transform.right);
     }
 }
