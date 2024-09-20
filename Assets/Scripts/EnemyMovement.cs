@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField]
     private Transform playerTransform;
 
     private Rigidbody rb;
@@ -13,7 +14,11 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         this.rb = GetComponent<Rigidbody>();
-        this.playerTransform = FindObjectOfType<PlayerMovement>().transform;
+    }
+
+    public void setPlayerTransform(Transform trans)
+    {
+        this.playerTransform = trans;
     }
 
 
