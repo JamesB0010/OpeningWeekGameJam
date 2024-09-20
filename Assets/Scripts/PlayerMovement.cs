@@ -32,11 +32,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 YRotation = new Vector3(0, mouseX, 0);
 
         this.rb.MoveRotation(this.rb.rotation * Quaternion.EulerAngles(YRotation * Time.deltaTime * this.rotationSpeed));
-
-
-        Debug.DrawRay(this.camera.transform.position, this.camera.transform.forward, Color.red);
-
-        Debug.Log(mouseX);
     }
 
     private void ApplyTranslation(float forwardInput, float leftInput)

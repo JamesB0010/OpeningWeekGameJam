@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
         {
             this.health = value;
 
-            if(this.health < 0)
+            if(this.health <= 0)
             {
                 Destroy(this.gameObject);
             }
@@ -26,6 +26,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void DealDamage(float damage)
     {
-        this.health -= damage;
+        this.Health -= damage;
+
+        Debug.Log("Health remaining " + this.health);
     }
 }

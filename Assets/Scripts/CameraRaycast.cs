@@ -18,6 +18,8 @@ public class CameraRaycast : MonoBehaviour
             Physics.Raycast(transform.position, transform.forward, out RaycastHit hit);
             if (hit.rigidbody)
             {
+
+                Debug.Log("Hit something");
                 hit.rigidbody.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyHealth);
                 if (enemyHealth != null)
                 {
