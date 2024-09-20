@@ -41,12 +41,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyTranslation(float forwardInput, float leftInput)
     {
-        float yVelocity = this.rb.velocity.y;
+        Vector3 direction = this.camera.transform.forward;
 
-        this.rb.velocity = new Vector3(leftInput * this.movementSpeed, yVelocity, forwardInput * this.movementSpeed);
+        Vector3 velocity = new Vector3(forwardInput, forwardInput, forwardInput);
 
-        this.rb.velocity.Scale(this.camera.transform.forward);
+        velocity *= this.movementSpeed;
 
-        this.rb.velocity.Scale(this.camera.transform.right);
+
+        float velY = this.rb.velocity.y;
+
+        velocity.Scale(direction);
+
+        velocity.y = velY;
+
+        this.rb.velocity = velocity;
+
+
+
+
+       
+
+        
+
     }
 }
